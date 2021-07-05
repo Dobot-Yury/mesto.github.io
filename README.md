@@ -3,4 +3,4 @@
 
 В данной проектной работе мы научились изменять имя пользователя и описание аккаунта
 
-* [Ссылка на мой сайт](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+* [Ссылка на мой сайт](https://dobot-yury.github.io/mesto.github.io/)
