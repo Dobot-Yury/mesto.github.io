@@ -1,0 +1,12 @@
+.popup__input{
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    max-width: 238px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.popup__input:focus {
+    outline: none;
+}
