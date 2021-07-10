@@ -1,15 +1,14 @@
 .popup__exit{
     padding: 0;
-    background-color: #000;
+    background-color: transparent;
     border: none;
     max-width: 20px;
     max-height: 20px;
     position: absolute;
     bottom: 100%;
     right: 0;
-    margin-bottom: 8px;
-    margin-left: 8px;
-}
+    margin-bottom: 16px;
+    }
 
 .popup__exit:hover{
     opacity: 0.6;
@@ -19,7 +18,8 @@
     .popup__exit{
         max-width: 32px;
         max-height: 32px;
-        bottom: 100%;
-        left: 100%;
+        right: -40px;
+        margin: 0;
+        margin-bottom: 8px;
     }
 }
