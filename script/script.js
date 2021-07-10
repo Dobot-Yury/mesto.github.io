@@ -3,8 +3,8 @@ const popupElement = document.querySelector('.popup')
 const popupCloseButtonElement = popupElement.querySelector('.popup__exit')
 const profileName = document.querySelector('.profile__title')
 const profileJob = document.querySelector('.profile__subtitle')
-const nameInput = popupElement.querySelector('.popup__user_name')
-const jobInput = popupElement.querySelector('.popup__user_description')
+const nameInput = popupElement.querySelector('.popup_user_name')
+const jobInput = popupElement.querySelector('.popup_user_description')
 const formElement = document.querySelector('.popup__form')
 
 /*открыть и закрыть окно*/
