@@ -105,7 +105,7 @@ function getCard(name, link){
         cardNewText.textContent = name
     }
 
-    createCard.addEventListener('click', view)
+    cardImage.addEventListener('click', view)
 
     function closeCard(){
         popupImage.classList.remove('popup_is-opened')
