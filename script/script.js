@@ -40,7 +40,7 @@ const nameCardInput = popupCards.querySelector('.popup__input_image_name')
 const linkInput = popupCards.querySelector('.popup__input_link')
 const formElement = document.querySelector('.popup__form')
 const formElementCard = document.querySelector('.popup_card_form')
-const cardButtonExit = document.querySelector('.popup_place-exit')
+const cardButtonExit = document.querySelector('.popup__place-exit')
 const cardTemplate = document.querySelector('.template').content
 const cardCase = document.querySelector('.cards')
 const newImageCard = popupCards.querySelector('.popup__input_image_name')
@@ -54,7 +54,6 @@ const openPopup = function(selectPopup){
     selectPopup.classList.add('popup_is-opened')
     nameInput.value = profileName.textContent
     jobInput.value = profileJob.textContent
-    closePopup()
 }
 
 const closePopup = function(selectPopup){
