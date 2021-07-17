@@ -40,7 +40,7 @@ const nameCardInput = popupCards.querySelector('.popup__input_image_name')
 const linkInput = popupCards.querySelector('.popup__input_link')
 const formElement = document.querySelector('.popup__form')
 const formElementCard = document.querySelector('.popup_card_form')
-const cardButtonExit = document.querySelector('.popup_place_exit')
+const cardButtonExit = document.querySelector('.popup_place-exit')
 const cardTemplate = document.querySelector('.template').content
 const cardCase = document.querySelector('.cards')
 const newImageCard = popupCards.querySelector('.popup__input_image_name')
@@ -86,7 +86,7 @@ function getCard(name, link){
     const createCard = cardTemplate.querySelector('.card').cloneNode(true)
     const cardText = createCard.querySelector('.card__title')
     const cardImage = createCard.querySelector('.card__image')
-    const cardExit = document.querySelector('.popup__image_exit')
+    const cardExit = document.querySelector('.popup__image-exit')
     cardText.textContent = name
     cardImage.src = link
     cardImage.alt = name
