@@ -29,63 +29,7 @@
                 <img class="profile__add-image" src="./images/Vector.svg" alt="Добавить новую фотографию">
             </button>
         </section>
-
-        <section class="elements">
-            <div class="element">
-                <img class="element__image" src="./images/Karachaevsc1.jpg" alt="Карачаево">
-                <div class="element__container">
-                    <h2 class="element__title">Карачаево-Черкесия</h2>
-                    <button type="button" class="element__like-button">
-                        <img class="element__like-image" src="./images/like.svg" alt="Лайк">
-                    </button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__image" src="./images/Elbrus1.png" alt="Эльбрус">
-                <div class="element__container">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button type="button" class="element__like-button">
-                        <img class="element__like-image" src="./images/like.svg" alt="Лайк">
-                    </button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__image" src="./images/Dombai1.png" alt="Домбай">
-                <div class="element__container">
-                    <h2 class="element__title">Домбай</h2>
-                    <button type="button" class="element__like-button">
-                        <img class="element__like-image" src="./images/like.svg" alt="Лайк">
-                    </button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__image" src="./images/Elbrus2.png" alt="Эльбрус">
-                <div class="element__container">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button type="button" class="element__like-button">
-                        <img class="element__like-image" src="./images/like.svg" alt="Лайк">
-                    </button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__image" src="./images/Dombai2.png" alt="Домбай">
-                <div class="element__container">
-                    <h2 class="element__title">Домбай</h2>
-                    <button type="button" class="element__like-button">
-                        <img class="element__like-image" src="./images/like.svg" alt="Лайк">
-                    </button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__image" src="./images/Karachaevsc2.png" alt="Карачаево">
-                <div class="element__container">
-                    <h2 class="element__title">Карачаево-Черкесия</h2>
-                    <button type="button" class="element__like-button">
-                        <img class="element__like-image" src="./images/like.svg" alt="Лайк">
-                    </button>
-                </div>
-            </div>
-        </section>
+        <section class="cards"></section>
     </main>
 
     <footer class="footer">
@@ -95,7 +39,7 @@
     <section class="popup">
         <div class="popup__container">
             <form action="#" class="popup__form" novalidate>
-                <button type="button" class="popup__exit"><img class="popup__image" src="./images/Close.png" alt="Крест"></button>
+                <button type="button" class="popup__exit"><img class="popup__exit-image" src="./images/Close.png" alt="Крест"></button>
                 <div class="popup__content">
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <input id="user-name-input" type="text" name="name" class="popup__input popup__text popup__input_user_name" placeholder="Имя">
@@ -105,7 +49,42 @@
             </form>
         </div>
     </section>
-    <script src="./script/script.js"></script>
+
+    <section class="popup popup_place_cards">
+        <div class="popup__container">
+            <form action="#" class="popup__form popup_card_form" novalidate>
+                <button type="button" class="popup__exit popup_place_exit"><img class="popup__exit-image" src="./images/Close.png" alt="Крест"></button>
+                <div class="popup__content">
+                    <h2 class="popup__title">Новое место</h2>
+                    <input id="user-name-input" type="text" name="name" class="popup__input popup__text popup__input_image_name" placeholder="Название">
+                    <input id="user-description-input" type="text" name="description" class="popup__input popup__text popup__input_link" placeholder="Ссылка на картинку">
+                    <button type="submit" class="popup__save popup__save_card">Создать</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="popup popup_card_fullscreen">
+        <div class="popup__fullscreen">
+            <button type="button" class="popup__exit popup_image_exit"><img class="popup__exit-image" src="./images/Close.png" alt="Крест"></button>
+            <img class="popup__image_fullscreen" src="" alt="">
+            <h2 class="popup__title_fullscreen"></h2>
+        </div>
+    </section>
+
+    <script src="./script/script.js" defer=""></script>=
+    <template class="template">
+        <div class="card">
+            <button type="button" class="card__delete-button"></button>
+            <img class="card__image" src="" alt="">
+            <div class="card__container">
+                <h2 class="card__title"></h2>
+                <button type="button" class="card__like-button">
+                    <img class="card__like-image" src="./images/like.svg" alt="Лайк">
+                </button>
+            </div>
+        </div>
+    </template>
 </body>
 
 </html>

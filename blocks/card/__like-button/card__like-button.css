@@ -1,4 +1,4 @@
-.element__like-button{
+.card__like-button{
     background-color: #fff;
     max-width: 22px;
     width: 100%;
@@ -8,6 +8,6 @@
     margin-top: 30px;
 }
 
-.element__like-button:hover{
+.card__like-button:hover{
     opacity: 0.5;
 }
