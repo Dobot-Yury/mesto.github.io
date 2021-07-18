@@ -1,7 +1,7 @@
 .card__like-button{
-    background-color: #fff;
-    max-width: 22px;
-    width: 100%;
+    background-image: url(../../../images/like.svg);
+    background-color: transparent;
+    width: 22px;
     max-height: 19px;
     padding: 0;
     border: none;
