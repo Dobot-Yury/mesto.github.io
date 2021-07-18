@@ -38,7 +38,7 @@
 
     <section class="popup">
         <div class="popup__container">
-            <form action="#" class="popup__form" novalidate>
+            <form action="#" name="profile" class="popup__form" novalidate>
                 <button type="button" class="popup__exit"><img class="popup__exit-image" src="./images/Close.png" alt="Крест"></button>
                 <div class="popup__content">
                     <h2 class="popup__title">Редактировать профиль</h2>
@@ -52,12 +52,12 @@
 
     <section class="popup popup_place_cards">
         <div class="popup__container">
-            <form action="#" class="popup__form popup__card" novalidate>
+            <form action="#" name="card" class="popup__form popup__card" novalidate>
                 <button type="button" class="popup__exit popup__place-exit"><img class="popup__exit-image" src="./images/Close.png" alt="Крест"></button>
                 <div class="popup__content">
                     <h2 class="popup__title">Новое место</h2>
-                    <input id="user-image-input" type="text" name="name" class="popup__input popup__text popup__input_image_name" placeholder="Название">
-                    <input id="user-link-input" type="text" name="description" class="popup__input popup__text popup__input_link" placeholder="Ссылка на картинку">
+                    <input id="user-image-input" type="text" name="image" class="popup__input popup__text popup__input_image_name" placeholder="Название">
+                    <input id="user-link-input" type="text" name="line" class="popup__input popup__text popup__input_link" placeholder="Ссылка на картинку">
                     <button type="submit" class="popup__save popup__save_card">Создать</button>
                 </div>
             </form>
