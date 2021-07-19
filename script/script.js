@@ -46,14 +46,13 @@ const cardCase = document.querySelector('.cards')
 const newImageCard = popupCards.querySelector('.popup__input_image_name')
 const newLinkCard = popupCards.querySelector('.popup__input_link')
 const popupElementAdd = popupCards.querySelector('.popup__card')
+const cardExit = document.querySelector('.popup__image-exit')
 
 
 /*открыть и закрыть окно*/
 
 const openPopup = function(selectPopup){
     selectPopup.classList.add('popup_is-opened')
-    nameInput.value = profileName.textContent
-    jobInput.value = profileJob.textContent
 }
 
 const closePopup = function(selectPopup){
@@ -64,7 +63,13 @@ const closePopupByClickOnOverlay = function(event) {
     if (event.target !== event.currentTarget){
         return
     }
-    closePopup()
+    closePopup(event.currentTarget)
+}
+
+function openPropfilePopup() {
+    nameInput.value = profileName.textContent
+    jobInput.value = profileJob.textContent
+    openPopup(popupElement) //заполняем поля формы  //вызываем функцию для открытия попапа 
 }
 
 /*Изменение имени и описания*/
@@ -85,7 +90,6 @@ function getCard(name, link){
     const createCard = cardTemplate.querySelector('.card').cloneNode(true)
     const cardText = createCard.querySelector('.card__title')
     const cardImage = createCard.querySelector('.card__image')
-    const cardExit = document.querySelector('.popup__image-exit')
     cardText.textContent = name
     cardImage.src = link
     cardImage.alt = name
@@ -99,18 +103,13 @@ function getCard(name, link){
     })
 
     function view(){
-        popupImage.classList.add('popup_is-opened')
+        openPopup(popupImage)
         selectCard.src = link
+        selectCard.alt = name
         cardNewText.textContent = name
     }
 
     cardImage.addEventListener('click', view)
-
-    function closeCard(){
-        popupImage.classList.remove('popup_is-opened')
-    }
-
-    cardExit.addEventListener('click', closeCard)
 
     return createCard
 }
@@ -130,10 +129,13 @@ const addNewCard = function(evt){
     closePopup(popupCards)
 }
 
-popupOpenButtonElement.addEventListener('click', () => openPopup(popupElement))
+popupOpenButtonElement.addEventListener('click', openPropfilePopup)
 popupOpenCards.addEventListener('click', () => openPopup(popupCards))
 cardButtonExit.addEventListener('click', () => closePopup(popupCards))
+cardExit.addEventListener('click', () => closePopup(popupImage))
 popupCloseButtonElement.addEventListener('click', () => closePopup(popupElement))
 popupElement.addEventListener('click', closePopupByClickOnOverlay)
+popupCards.addEventListener('click', closePopupByClickOnOverlay)
+popupImage.addEventListener('click', closePopupByClickOnOverlay)
 popupElementAdd.addEventListener('submit', addNewCard)
 formElement.addEventListener('submit',formSubmitHandler)
