@@ -7,4 +7,4 @@
 
 Редактирование профиля, добовлание картинок
 
-* [Ссылка на мой сайт](https://dobot-yury.github.io/mesto.github.io/)
+* [Ссылка на мой сайт](https://dobot-yury.github.io/mesto1/)
