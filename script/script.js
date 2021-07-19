@@ -69,7 +69,7 @@ const closePopupByClickOnOverlay = function(event) {
 function openPropfilePopup() {
     nameInput.value = profileName.textContent
     jobInput.value = profileJob.textContent
-    openPopup(popupElement) //заполняем поля формы  //вызываем функцию для открытия попапа 
+    openPopup(popupElement)
 }
 
 /*Изменение имени и описания*/
