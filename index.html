@@ -36,10 +36,10 @@
         <p class="footer__text">© 2020 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <section class="popup popup_place_profile">
         <div class="popup__container">
             <form action="#" name="profile" class="popup__form" novalidate>
-                <button type="button" class="popup__exit"><img class="popup__exit-image" src="./images/Close.png" alt="Крест"></button>
+                <button type="button" class="popup__exit popup__profile-exit"><img class="popup__exit-image" src="./images/Close.png" alt="Крест"></button>
                 <div class="popup__content">
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <label class="popup__form-field">
@@ -50,7 +50,7 @@
                         <input id="description" type="text" name="description" class="popup__input popup__text popup__input_user_description" placeholder="О себе" required minlength="2" maxlength="200">
                         <span id="description-error" class="popup__input-error"> </span>
                     </label>
-                    <button type="submit" class="popup__save popup__save_disabled" disabled>Сохранить</button>
+                    <button type="submit" class="popup__save popup__save_profile popup__save_disabled" disabled>Сохранить</button>
                 </div>
             </form>
         </div>
@@ -59,7 +59,7 @@
     <section class="popup popup_place_cards">
         <div class="popup__container">
             <form action="#" name="card" class="popup__form popup__card-form" novalidate>
-                <button type="button" class="popup__exit popup__place-exit"><img class="popup__exit-image" src="./images/Close.png" alt="Крест"></button>
+                <button type="button" class="popup__exit popup__card-exit"><img class="popup__exit-image" src="./images/Close.png" alt="Крест"></button>
                 <div class="popup__content">
                     <h2 class="popup__title">Новое место</h2>
                     <label class="popup__form-field">
