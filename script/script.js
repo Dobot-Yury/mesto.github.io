@@ -15,7 +15,7 @@ const jobInputProfile = popupProfile.querySelector('.popup__input_user_descripti
 const imageInputCard = popupCards.querySelector('.popup__input_image_name')
 const linkInputCard = popupCards.querySelector('.popup__input_link')
 
-const formPopupProfile = document.querySelector('.popup__form')
+const formPopupProfile = document.querySelector('.popup__profile-form')
 const formPopupCard = popupCards.querySelector('.popup__card-form')
 
 const cardTemplate = document.querySelector('.template').content
