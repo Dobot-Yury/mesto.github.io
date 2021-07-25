@@ -12,16 +12,20 @@ const nameInput = popupElement.querySelector('.popup__input_user_name')
 const jobInput = popupElement.querySelector('.popup__input_user_description')
 const nameCardInput = popupCards.querySelector('.popup__input_image_name')
 const linkInput = popupCards.querySelector('.popup__input_link')
-const formElement = document.querySelector('.popup__form')
-const formElementCard = document.querySelector('.popup_card_form')
+
+const formElements = document.querySelector('.popup__form')
+
 const cardButtonExit = document.querySelector('.popup__place-exit')
 const cardTemplate = document.querySelector('.template').content
 const cardCase = document.querySelector('.cards')
 const newImageCard = popupCards.querySelector('.popup__input_image_name')
 const newLinkCard = popupCards.querySelector('.popup__input_link')
-const popupElementAdd = popupCards.querySelector('.popup__card')
+const popupElementAdd = popupCards.querySelector('.popup__card-form')
 const cardExit = document.querySelector('.popup__image-exit')
-const buttonElement = document.querySelector('.popup__save')
+const buttonElements = document.querySelector('.popup__save')
+const buttonCards = document.querySelector('.popup__save_card')
+
+const errorElement = document.querySelector('.popup__input-error')
 
 
 /*открыть и закрыть окно*/
@@ -43,17 +47,26 @@ const closePopupByClickOnOverlay = function(event) {
 }
 
 function openPropfilePopup() {
+    openPopup(popupElement)
     nameInput.value = profileName.textContent
     jobInput.value = profileJob.textContent
-    openPopup(popupElement)
+    buttonElements.classList.add("popup__save_disabled")
+    checkInputValidity(formElements,nameInput)
+    checkInputValidity(formElements,jobInput)
 }
 
 function openCardPopup() {
-    newImageCard.value = ""
-    newLinkCard.value = ""
     openPopup(popupCards)
+    buttonCards.classList.add("popup__save_disabled")
+    newLinkCard.value = ""
+    newImageCard.value = ""
 }
 
+function closeCardPopup() {
+    closePopup(popupCards)
+    hideInputError(newLinkCard)
+    hideInputError(newImageCard)
+} 
 /*Закрытие ESC*/
 
 const closeEsc = (evt) => {
@@ -122,11 +135,11 @@ const addNewCard = function(evt){
 
 popupOpenButtonElement.addEventListener('click', openPropfilePopup)
 popupOpenCards.addEventListener('click', openCardPopup)
-cardButtonExit.addEventListener('click', () => closePopup(popupCards))
+cardButtonExit.addEventListener('click', closeCardPopup)
 cardExit.addEventListener('click', () => closePopup(popupImage))
 popupCloseButtonElement.addEventListener('click', () => closePopup(popupElement))
 popupElement.addEventListener('click', closePopupByClickOnOverlay)
 popupCards.addEventListener('click', closePopupByClickOnOverlay)
 popupImage.addEventListener('click', closePopupByClickOnOverlay)
 popupElementAdd.addEventListener('submit', addNewCard)
-formElement.addEventListener('submit',formSubmitHandler)
+formElements.addEventListener('submit',formSubmitHandler)
