@@ -41,13 +41,7 @@ const closePopupByClickOnOverlay = function(event) {
         return
     }
     closePopup(event.currentTarget)
-}
-
-const closePopupCardByClickOnOverlay = function(event) {
-    if (event.target !== event.currentTarget){
-        return
-    }
-    closeCardPopup(event.currentTarget)
+    closeCardPopup()
 }
 
 function openPropfilePopup() {
@@ -143,7 +137,7 @@ popupCloseButtonCards.addEventListener('click', closeCardPopup)
 popupCloseButtonImages.addEventListener('click', () => closePopup(popupImage))
 popupCloseButtonElement.addEventListener('click', () => closePopup(popupProfile))
 popupProfile.addEventListener('click', closePopupByClickOnOverlay)
-popupCards.addEventListener('click', closePopupCardByClickOnOverlay)
+popupCards.addEventListener('click', closePopupByClickOnOverlay)
 popupImage.addEventListener('click', closePopupByClickOnOverlay)
 formPopupCard.addEventListener('submit', addNewCard)
 formPopupProfile.addEventListener('submit', submitFormProfile)
