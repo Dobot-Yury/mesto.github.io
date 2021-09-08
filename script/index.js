@@ -1,3 +1,6 @@
+import { initialCards } from './initial-сards.js'
+import { Card } from './Card.js'
+
 const popupProfile = document.querySelector('.popup_place_profile')
 const popupCards = document.querySelector('.popup_place_cards')
 const popupImage = document.querySelector('.popup_card_fullscreen')
@@ -18,7 +21,6 @@ const linkInputCard = popupCards.querySelector('.popup__input_link')
 const formPopupProfile = popupProfile.querySelector('.popup__profile-form')
 const formPopupCard = popupCards.querySelector('.popup__card-form')
 
-const cardTemplate = document.querySelector('.template').content
 const cardCase = document.querySelector('.cards')
 
 const buttonSubmitFormProfile = popupProfile.querySelector('.popup__save_profile')
@@ -83,41 +85,9 @@ function submitFormProfile (evt) {
     closePopup(popupProfile)
 }
 
-/*Карточки*/
-
-
-function getCard(name, link){
-    const selectCard = document.querySelector('.popup__image-fullscreen')
-    const cardNewText = document.querySelector('.popup__title-fullscreen')
-    const createCard = cardTemplate.querySelector('.card').cloneNode(true)
-    const cardText = createCard.querySelector('.card__title')
-    const cardImage = createCard.querySelector('.card__image')
-    cardText.textContent = name
-    cardImage.src = link
-    cardImage.alt = name
-    /*Лайк*/
-    createCard.querySelector('.card__like-button').addEventListener('click', (evt) =>{
-        evt.target.classList.toggle('card__like-button_active')
-    })
-    /*Удаление карточки*/
-    createCard.querySelector('.card__delete-button').addEventListener('click', (evt) =>{
-        evt.target.closest('.card').remove()
-    })
-
-    function view(){
-        openPopup(popupImage)
-        selectCard.src = link
-        selectCard.alt = name
-        cardNewText.textContent = name
-    }
-
-    cardImage.addEventListener('click', view)
-
-    return createCard
-}
-
 initialCards.forEach(function(el){
-    cardCase.append(getCard(el.name, el.link))
+    const Card = new Card(el.name, el.link, '.template')
+    cardCase.append(Card.generateCard())
 })
 
 /*Добавление карточки*/
@@ -130,6 +100,7 @@ const addNewCard = function(evt){
     linkInputCard.value = ""
     closePopup(popupCards)
 }
+
 
 popupOpenButtonElement.addEventListener('click', openPropfilePopup)
 popupOpenButtonCards.addEventListener('click', openCardPopup)
