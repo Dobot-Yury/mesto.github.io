@@ -1,4 +1,5 @@
-export class Card{
+import { openPopup } from "./index.js"
+export class Card {
 
     constructor(name, link, template){
         this._name = name
@@ -8,7 +9,8 @@ export class Card{
 
     getCard(){
         this._cardTemplate = document.querySelector(this._template).content
-        return this._cardTemplate.querSelector('.card').cloneNode(true)
+        this._newCard = this._cardTemplate.querySelector('.card').cloneNode(true)
+        return this._newCard
     }
 
     _setEventListeners() {
@@ -16,8 +18,14 @@ export class Card{
         this._cardImage = this._newCard.querySelector('.card__image')
         this._cardDeleteButton = this._newCard.querySelector('.card__delete-button')
         this._likeButton = this._newCard.querySelector('.card__like-button')
+        this._popupPlace = document.querySelector('.popup_card_fullscreen')
+        this._popupPlaceImage = this._popupPlace.querySelector('.popup__image-fullscreen')
+        this._popupPlaceTitle = this._popupPlace.querySelector('.popup__title-fullscreen')
         
-        
+        this._popupPlaceImage.src = this._link
+        this._popupPlaceImage.alt = this._name
+        this._popupPlaceTitle.textContent = this._name
+
         this._cardText.textContent = this._name
         this._cardImage.src = this._link
         this._cardImage.alt = this._name
@@ -32,18 +40,16 @@ export class Card{
             evtTarget.closest('.card').remove()
         })
         /*Открытие Card*/
-        this._cardImage.addEventListener('click', openImagePopup)
-        
-        return newCard
     }
     
     generateCard() {
-        this._element = this._getCard()
+        this._element = this.getCard()
     
         this._setEventListeners()
     
-        this._element.querySelector('.card__image').style.backgroundImage = `url(${this._image})`
+        this._element.querySelector('.card__image').scr = this._link
         this._element.querySelector('.card__title').textContent = this._title
+        this._element.addEventListener('click', openPopup(this._popupPlace))
     
         return this._element
     }

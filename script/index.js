@@ -28,7 +28,7 @@ const buttonSubmitFormCard = popupCards.querySelector('.popup__save_card')
 
 /*открыть и закрыть окно*/
 
-const openPopup = function(selectPopup){
+export const openPopup = function(selectPopup){
     selectPopup.classList.add('popup_is-opened')
     document.addEventListener('keydown', closeEsc)
 }
@@ -46,6 +46,12 @@ const closePopupByClickOnOverlay = function(event) {
     closeCardPopup()
 }
 
+function closeCardPopup() {
+    closePopup(popupCards)
+    hideInputError(imageInputCard)
+    hideInputError(linkInputCard)
+} 
+
 function openPropfilePopup() {
     openPopup(popupProfile)
     nameInputProfile.value = profileName.textContent
@@ -62,11 +68,6 @@ function openCardPopup() {
     linkInputCard.value = ""
 }
 
-function closeCardPopup() {
-    closePopup(popupCards)
-    hideInputError(imageInputCard)
-    hideInputError(linkInputCard)
-} 
 /*Закрытие ESC*/
 
 const closeEsc = (evt) => {
@@ -85,9 +86,9 @@ function submitFormProfile (evt) {
     closePopup(popupProfile)
 }
 
-initialCards.forEach(function(el){
-    const Card = new Card(el.name, el.link, '.template')
-    cardCase.append(Card.generateCard())
+initialCards.forEach(function (el) {
+    const card = new Card(el.name, el.link, '.template')
+    cardCase.append(card.generateCard())
 })
 
 /*Добавление карточки*/
