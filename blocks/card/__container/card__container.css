@@ -2,6 +2,7 @@
     border-radius: 10px 10px 0px 0px;
     max-width: 246px;
     margin: 0;
+    margin-top: 24px;
     margin-left: 21px;
     display: grid;
     grid-template-columns: 226px 20px;

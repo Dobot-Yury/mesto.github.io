@@ -1,30 +1,26 @@
 import { initialCards } from './initial-сards.js'
 import { Card } from './Card.js'
-
+import { FormValidator } from './FormValidator.js'
 const popupProfile = document.querySelector('.popup_place_profile')
 const popupCards = document.querySelector('.popup_place_cards')
 const popupImage = document.querySelector('.popup_card_fullscreen')
 
 const popupOpenButtonElement = document.querySelector('.profile__edit-button')
 const popupOpenButtonCards = document.querySelector('.profile__add-button')
-const popupCloseButtonElement = popupProfile.querySelector('.popup__profile-exit')
+const popupCloseButtonElement =  document.querySelector('.popup__profile-exit')
 const popupCloseButtonCards = popupCards.querySelector('.popup__card-exit')
 const popupCloseButtonImages = popupImage.querySelector('.popup__image-exit')
 
-const profileName = document.querySelector('.profile__title')
-const profileJob = document.querySelector('.profile__subtitle')
-const nameInputProfile = popupProfile.querySelector('.popup__input_user_name')
-const jobInputProfile = popupProfile.querySelector('.popup__input_user_description')
-const imageInputCard = popupCards.querySelector('.popup__input_image_name')
-const linkInputCard = popupCards.querySelector('.popup__input_link')
-
-const formPopupProfile = popupProfile.querySelector('.popup__profile-form')
+const formPopupProfile = document.querySelector('.popup__profile-form')
 const formPopupCard = popupCards.querySelector('.popup__card-form')
-
 const cardCase = document.querySelector('.cards')
 
-const buttonSubmitFormProfile = popupProfile.querySelector('.popup__save_profile')
-const buttonSubmitFormCard = popupCards.querySelector('.popup__save_card')
+const profileName = document.querySelector('.profile__title')
+const profileJob = document.querySelector('.profile__subtitle')
+const nameInputProfile = formPopupProfile.querySelector(".popup__input_user_name")
+const jobInputProfile = formPopupProfile.querySelector(".popup__input_user_description")
+const imageInputCard = popupCards.querySelector('.popup__input_image_name')
+const linkInputCard = popupCards.querySelector('.popup__input_link')
 
 /*открыть и закрыть окно*/
 
@@ -38,6 +34,10 @@ const closePopup = function(selectPopup){
     document.removeEventListener('keydown', closeEsc)
 }
 
+function closeCardPopup() {
+    closePopup(popupCards)
+}
+
 const closePopupByClickOnOverlay = function(event) {
     if (event.target !== event.currentTarget){
         return
@@ -46,24 +46,15 @@ const closePopupByClickOnOverlay = function(event) {
     closeCardPopup()
 }
 
-function closeCardPopup() {
-    closePopup(popupCards)
-    hideInputError(imageInputCard)
-    hideInputError(linkInputCard)
-} 
 
 function openPropfilePopup() {
     openPopup(popupProfile)
     nameInputProfile.value = profileName.textContent
     jobInputProfile.value = profileJob.textContent
-    buttonSubmitFormProfile.classList.add("popup__save_disabled")
-    checkInputValidity(formPopupProfile,nameInputProfile)
-    checkInputValidity(formPopupProfile,jobInputProfile)
 }
 
 function openCardPopup() {
     openPopup(popupCards)
-    buttonSubmitFormCard.classList.add("popup__save_disabled")
     imageInputCard.value = ""
     linkInputCard.value = ""
 }
@@ -102,9 +93,24 @@ const addNewCard = function(evt){
     closePopup(popupCards)
 }
 
+const config = {
+    formSelector: '.popup__form',
+    formElementField: '.popup__form-field',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save',
+    inactiveButtonClass: 'popup__save_disabled',
+    inputErrorClass: 'popup__input-error',
+    errorClass: 'popup__input-error_active'
+}
+
+const formValidatorCard = new FormValidator(config, formPopupCard)
+formValidatorCard.enableValidation()
+
+const formValidatorProfile = new FormValidator(config, formPopupProfile )
+formValidatorProfile.enableValidation()
 
 popupOpenButtonElement.addEventListener('click', openPropfilePopup)
-popupOpenButtonCards.addEventListener('click', openCardPopup)
+popupOpenButtonCards.addEventListener('click',openCardPopup)
 popupCloseButtonCards.addEventListener('click', closeCardPopup)
 popupCloseButtonImages.addEventListener('click', () => closePopup(popupImage))
 popupCloseButtonElement.addEventListener('click', () => closePopup(popupProfile))
