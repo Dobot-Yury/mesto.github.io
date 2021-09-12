@@ -84,10 +84,9 @@ function submitFormProfile (evt) {
 /*Добавление карточки*/
 const addNewCard = function(evt){
     evt.preventDefault()
-    const popupNameCard = imageInputCard.value
-    const popupLinkCard = linkInputCard.value
-    const card = new Card({name:popupNameCard, link:popupLinkCard})
+    const card = new Card(imageInputCard.value, linkInputCard.value, placesTemplate)
     cardCase.prepend(card.generateCard())
+    formPopupCard.reset()
     closePopup(popupCards)
 }
 
