@@ -1,14 +1,14 @@
 import { openPopup } from "./index.js"
 export class Card {
 
-    constructor(name, link, template){
+    constructor(name,link, placesTemplate){
         this._name = name
         this._link = link
-        this._template = template
+        this._placesTemplate = placesTemplate
     }
 
     getCard(){
-        this._cardTemplate = document.querySelector(this._template).content
+        this._cardTemplate = document.querySelector(this._placesTemplate).content
         this._newCard = this._cardTemplate.querySelector('.card').cloneNode(true)
         return this._newCard
     }

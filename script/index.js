@@ -4,6 +4,7 @@ import { FormValidator } from './FormValidator.js'
 const popupProfile = document.querySelector('.popup_place_profile')
 const popupCards = document.querySelector('.popup_place_cards')
 const popupImage = document.querySelector('.popup_card_fullscreen')
+const placesTemplate = '.template'
 
 const popupOpenButtonElement = document.querySelector('.profile__edit-button')
 const popupOpenButtonCards = document.querySelector('.profile__add-button')
@@ -77,21 +78,24 @@ function submitFormProfile (evt) {
     closePopup(popupProfile)
 }
 
-initialCards.forEach(function (el) {
-    const card = new Card(el.name, el.link, '.template')
-    cardCase.append(card.generateCard())
-})
+
+
 
 /*Добавление карточки*/
 const addNewCard = function(evt){
     evt.preventDefault()
     const popupNameCard = imageInputCard.value
     const popupLinkCard = linkInputCard.value
-    cardCase.prepend(getCard(popupNameCard, popupLinkCard))
-    imageInputCard.value = ""
-    linkInputCard.value = ""
+    const card = new Card({name:popupNameCard, link:popupLinkCard})
+    cardCase.prepend(card.generateCard())
     closePopup(popupCards)
 }
+
+initialCards.forEach(function (el) {
+    const card = new Card(el.name, el.link, placesTemplate)
+    cardCase.append(card.generateCard())
+})
+
 
 const config = {
     formSelector: '.popup__form',
