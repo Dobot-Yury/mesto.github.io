@@ -19,10 +19,6 @@ export class Card {
         this._cardDeleteButton = this._newCard.querySelector('.card__delete-button')
         this._likeButton = this._newCard.querySelector('.card__like-button')
 
-        this._cardText.textContent = this._name
-        this._cardImage.src = this._link
-        this._cardImage.alt = this._name
-
         /*Лайк*/
         this._likeButton.addEventListener('click', () =>{
             this._likeButton.classList.toggle('card__like-button_active')
@@ -46,12 +42,13 @@ export class Card {
     
     generateCard() {
         this._element = this.getCard()
-    
+
         this._setEventListeners()
     
-        this._element.querySelector('.card__image').scr = this._link
-        this._element.querySelector('.card__title').textContent = this._name
-    
+        this._cardText.textContent = this._name
+        this._cardImage.src = this._link
+        this._cardImage.alt = this._name
+
         return this._element
     }
 }

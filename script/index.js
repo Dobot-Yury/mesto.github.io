@@ -44,7 +44,6 @@ const closePopupByClickOnOverlay = function(event) {
         return
     }
     closePopup(event.currentTarget)
-    closeCardPopup()
 }
 
 
@@ -58,6 +57,7 @@ function openCardPopup() {
     openPopup(popupCards)
     imageInputCard.value = ""
     linkInputCard.value = ""
+    formValidatorCard.resetValidation()
 }
 
 /*Закрытие ESC*/
@@ -82,18 +82,21 @@ function submitFormProfile (evt) {
 
 
 /*Добавление карточки*/
-const addNewCard = function(evt){
+const renderCard = function(evt){
     evt.preventDefault()
-    const card = new Card(imageInputCard.value, linkInputCard.value, placesTemplate)
-    cardCase.prepend(card.generateCard())
+    cardCase.prepend(createCard(imageInputCard.value, linkInputCard.value))
     formPopupCard.reset()
     closePopup(popupCards)
 }
 
 initialCards.forEach(function (el) {
-    const card = new Card(el.name, el.link, placesTemplate)
-    cardCase.append(card.generateCard())
+    cardCase.append(createCard(el.name, el.link))
 })
+
+function createCard(name,link) {
+    const card = new Card(name, link, placesTemplate)
+    return card.generateCard()
+}
 
 
 const config = {
@@ -120,5 +123,5 @@ popupCloseButtonElement.addEventListener('click', () => closePopup(popupProfile)
 popupProfile.addEventListener('click', closePopupByClickOnOverlay)
 popupCards.addEventListener('click', closePopupByClickOnOverlay)
 popupImage.addEventListener('click', closePopupByClickOnOverlay)
-formPopupCard.addEventListener('submit', addNewCard)
+formPopupCard.addEventListener('submit', renderCard)
 formPopupProfile.addEventListener('submit', submitFormProfile)
