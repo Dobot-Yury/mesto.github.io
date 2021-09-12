@@ -18,6 +18,9 @@ export class Card {
         this._cardImage = this._newCard.querySelector('.card__image')
         this._cardDeleteButton = this._newCard.querySelector('.card__delete-button')
         this._likeButton = this._newCard.querySelector('.card__like-button')
+        this._popupPlace = document.querySelector('.popup_card_fullscreen')
+        this._popupPlaceImage = this._popupPlace.querySelector('.popup__image-fullscreen')
+        this._popupPlaceTitle = this._popupPlace.querySelector('.popup__title-fullscreen')
 
         /*Лайк*/
         this._likeButton.addEventListener('click', () =>{
@@ -30,9 +33,6 @@ export class Card {
         })
         /*Открытие Card*/
         this._cardImage.addEventListener("click", () =>{
-            this._popupPlace = document.querySelector('.popup_card_fullscreen')
-            this._popupPlaceImage = this._popupPlace.querySelector('.popup__image-fullscreen')
-            this._popupPlaceTitle = this._popupPlace.querySelector('.popup__title-fullscreen')
             openPopup(this._popupPlace)
             this._popupPlaceImage.src = this._link
             this._popupPlaceImage.alt = this._name
