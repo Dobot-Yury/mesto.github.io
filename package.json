@@ -1,0 +1,38 @@
+{
+  "name": "mesto1",
+  "version": "1.0.0",
+  "description": "В данной проектной работе мы научились изменять имя пользователя и описание аккаунта",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dobot-Yury/mesto1.git"
+  },
+  "author": "Yury Dobot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dobot-Yury/mesto1/issues"
+  },
+  "homepage": "https://github.com/Dobot-Yury/mesto1#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "autoprefixer": "^10.3.4",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.2.0",
+    "cssnano": "^5.0.8",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.3.0",
+    "postcss-loader": "^6.1.1",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "core-js": "^3.17.3"
+  }
+}
