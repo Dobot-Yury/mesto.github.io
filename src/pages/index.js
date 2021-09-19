@@ -1,11 +1,11 @@
-import '../pages/index.css'
-import { initialCards } from './initial-сards.js'
-import { Card } from './Card.js'
-import { FormValidator } from './FormValidator.js'
-import { Section } from './Section.js'
-import { PopupWithImage } from './PopupWithImage.js'
-import { UserInfo } from './UserInfo.js'
-import { PopupWithForm } from './PopupWithForm.js'
+import './index.css'
+import { initialCards } from '../components/initial-сards.js'
+import { Card } from '../components/Card.js'
+import { FormValidator } from '../components/FormValidator.js'
+import { Section } from '../components/Section.js'
+import { PopupWithImage } from '../components/PopupWithImage.js'
+import { UserInfo } from '../components/UserInfo.js'
+import { PopupWithForm } from '../components/PopupWithForm.js'
 import {
 	popupProfile,
 	popupCards,
@@ -27,7 +27,7 @@ import {
 
 /*Добавление карточки*/
 const newCard = new PopupWithForm(popupCards, (item) =>{
-	const newCards = createCard(item.name, item.link)
+	const newCards = createCard(item.cardname, item.link)
 	cardsCatalogue.addItem(newCards)
 	newCard.close()
 })
@@ -36,7 +36,7 @@ newCard.setEventListeners()
 const cardsCatalogue = new Section({
 	items: initialCards,
 	renderer:(item)=>{
-		const cardElement = createCard(item.name, item.link, placesTemplate, handleCardClick)
+		const cardElement = createCard(item.name, item.link)
 
 		cardsCatalogue.addItem(cardElement)
 	}
@@ -59,14 +59,13 @@ function handleCardClick(name, link){
 }
 /*popup*/
 
-
-const profileInfo = new UserInfo ({
+const profileInfo = new UserInfo({
 	name: profileName,
 	job: profileJob,
 })
 
 const popupProfileEdit = new PopupWithForm(popupProfile, (item) => {
-	profileInfo.SetuserInfo(item)
+	profileInfo.setUserInfo(item)
 	popupProfileEdit.close()
 },
 formPopupProfile)
